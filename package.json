@@ -1,7 +1,7 @@
 {
   "name": "watjs",
   "version": "1.0.0",
-  "description": "Write WebAssembly Text Format files in JavaScript.",
+  "description": "Write WebAssembly Text Format Files(.wat) in JavaScript way.",
   "main": "wat.js",
   "scripts": {
     "test": "node test.js"

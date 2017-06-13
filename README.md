@@ -1,6 +1,6 @@
 # watjs
 
-Generate your `.wat` from JavaScript APIs.
+Write WebAssembly Text Format Files(.wat) in JavaScript way.
 
 ### Installation
 
