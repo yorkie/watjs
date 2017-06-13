@@ -1,0 +1,27 @@
+{
+  "name": "watjs",
+  "version": "1.0.0",
+  "description": "Write WebAssembly Text Format files in JavaScript.",
+  "main": "wat.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yorkie/watjs.git"
+  },
+  "keywords": [
+    "WebAssembly",
+    "WAT",
+    "wat"
+  ],
+  "author": "Yorkie Liu <yorkiefixer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yorkie/watjs/issues"
+  },
+  "homepage": "https://github.com/yorkie/watjs#readme",
+  "dependencies": {
+    "node-sexp": "^1.0.1"
+  }
+}
