@@ -101,9 +101,30 @@ wat.i32.as('local') // (local i32)
 
 **Write `body` function** provides the following internal functions for inserting instructions:
 
-- `get()` maps to the instruction `get_local`.
-- `set()` maps to the instruction `set_local`.
-- `call()` maps to the instruction `call`.
+- [ ] Memory/Page resizing
+  - [ ] `growMemory()` maps to `grow_memory`.
+  - [ ] `getCurrentMemory()` maps to `current_memory`.
+- [ ] Local variables
+  - [x] `get(index)` maps to `get_local`.
+  - [x] `set(index)` maps to `set_local`.
+  - [ ] `tee(index)` maps to `tee_local`.
+- [ ] Global varables
+  - [ ] `gget(index)` maps to `get_global`.
+  - [ ] `gset(index)` maps to `set_global`.
+- [ ] Control flow
+  - [ ] `nop()` no operation, no effect.
+  - [ ] `block()` the beginning of a block construct, a sequence of instructions with a label at the end.
+  - [ ] `loop()` a block with a label at the beginning which may be used to form loops.
+  - [ ] `if()` the beginning of an if construct with an implicit then block.
+  - [ ] `else()` marks the else block of an if.
+  - [ ] `br()` branch to a given label in an enclosing construct.
+  - [ ] `br_if()` conditionally branch to a given label in an enclosing construct.
+  - [ ] `br_table()` a jump table which jumps to a label in an enclosing construct.
+  - [ ] `return()` return zero or more values from this function.
+  - [ ] `end()` an instruction that marks the end of a block, loop, if, or function.
+- [ ] Calls
+  - [x] `call()` maps to `call`.
+  - [ ] `call_indirect()` maps to `call_indirect`.
 
 And `i32/i64/f32/f64` iteratly maps the following operators:
 
