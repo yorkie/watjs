@@ -108,12 +108,12 @@ wat.i32.as('local') // (local i32)
   - [x] `get(index)` maps to `get_local`.
   - [x] `set(index)` maps to `set_local`.
   - [ ] `tee(index)` maps to `tee_local`.
-- [ ] Global varables
-  - [ ] `gget(index)` maps to `get_global`.
-  - [ ] `gset(index)` maps to `set_global`.
+- [x] Global varables
+  - [x] `gget(index)` maps to `get_global`.
+  - [x] `gset(index)` maps to `set_global`.
 - [ ] Control flow
-  - [ ] `nop()` no operation, no effect.
-  - [ ] `block()` the beginning of a block construct, a sequence of instructions with a label at the end.
+  - [x] `nop()` no operation, no effect.
+  - [x] `block()` the beginning of a block construct, a sequence of instructions with a label at the end.
   - [ ] `loop()` a block with a label at the beginning which may be used to form loops.
   - [ ] `if()` the beginning of an if construct with an implicit then block.
   - [ ] `else()` marks the else block of an if.
@@ -121,7 +121,7 @@ wat.i32.as('local') // (local i32)
   - [ ] `br_if()` conditionally branch to a given label in an enclosing construct.
   - [ ] `br_table()` a jump table which jumps to a label in an enclosing construct.
   - [ ] `return()` return zero or more values from this function.
-  - [ ] `end()` an instruction that marks the end of a block, loop, if, or function.
+  - [x] `end()` an instruction that marks the end of a block, loop, if, or function.
 - [ ] Calls
   - [x] `call()` maps to `call`.
   - [ ] `call_indirect()` maps to `call_indirect`.
@@ -135,10 +135,10 @@ And `i32/i64/f32/f64` iteratly maps the following operators:
 `i32/i64` types provides the following operators:
 
 - [x] `add()` sign-agnostic addition
-- [ ] `sub()` sign-agnostic subtraction
-- [ ] `mul()` sign-agnostic multiplication (lower 32-bits)
-- [ ] `div()` division (result is truncated toward zero)
-- [ ] `rem()` remainder (result has the sign of the dividend)
+- [x] `sub()` sign-agnostic subtraction
+- [x] `mul()` sign-agnostic multiplication (lower 32-bits)
+- [x] `div()` division (result is truncated toward zero)
+- [x] `rem()` remainder (result has the sign of the dividend)
 - [ ] `and()` sign-agnostic bitwise and
 - [ ] `or()`  sign-agnostic bitwise inclusive or
 - [ ] `xor()` sign-agnostic bitwise exclusive or
@@ -160,9 +160,9 @@ And `i32/i64/f32/f64` iteratly maps the following operators:
 Floating point `f32/f64 operators:
 
 - [x] `add()` addition
-- [ ] `sub()` subtraction
-- [ ] `mul()` multiplication
-- [ ] `div()` division
+- [x] `sub()` subtraction
+- [x] `mul()` multiplication
+- [x] `div()` division
 - [ ] `abs()` absolute value
 - [ ] `neg()` negation
 - [ ] `copysign()` copysign

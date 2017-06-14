@@ -19,16 +19,6 @@ class WATNumber {
     this._onresult = onresult;
   }
   /**
-   * @method add
-   */
-  add() {
-    const data = `${this.type}.add`;
-    if (typeof this._onresult === 'function') {
-      this._onresult(data)
-    }
-    return data;
-  }
-  /**
    * @method load
    * @param {Number} bits - the number of bits to load
    * @param {String} flag - the s or u
@@ -90,6 +80,67 @@ class WATNumber {
     const data = `${this.type}.const ${val}`;
     if (typeof this._onresult === 'function') {
       this._onresult(data);
+    }
+    return data;
+  }
+  /**
+   * @method add
+   */
+  add() {
+    const data = `${this.type}.add`;
+    if (typeof this._onresult === 'function') {
+      this._onresult(data)
+    }
+    return data;
+  }
+  /**
+   * @method sub
+   */
+  sub() {
+    const data = `${this.type}.sub`;
+    if (typeof this._onresult === 'function') {
+      this._onresult(data)
+    }
+    return data;
+  }
+  /**
+   * @method mul
+   */
+  mul() {
+    const data = `${this.type}.mul`;
+    if (typeof this._onresult === 'function') {
+      this._onresult(data)
+    }
+    return data;
+  }
+  /**
+   * @method div
+   * @param {String} flag - "s" or "u"
+   */
+  div(flag) {
+    if (flag !== 's' || flag !== 'u') {
+      throw new TypeError('the flag could only be "s"(signed) or "u"(unsigned)');
+    }
+    const data = `${this.type}.div_${flag}`;
+    if (typeof this._onresult === 'function') {
+      this._onresult(data)
+    }
+    return data;
+  }
+  /**
+   * @method rem
+   * @param {String} flag - "s" or "u"
+   */
+  rem(flag) {
+    if (this.type !== 'i32' || this.type !== 'i64') {
+      throw new TypeError('i32/i64 doesnt have this function');
+    }
+    if (flag !== 's' || flag !== 'u') {
+      throw new TypeError('the flag could only be "s"(signed) or "u"(unsigned)');
+    }
+    const data = `${this.type}.rem_${flag}`;
+    if (typeof this._onresult === 'function') {
+      this._onresult(data)
     }
     return data;
   }
@@ -187,12 +238,31 @@ class WATFunction {
     }
 
     const ctx = {
+      // local variables
       get(index) {
         onresult(`get_local ${index}`);
       },
       set(index) {
         onresult(`set_local ${index}`);
       },
+      // global variables
+      gget(index) {
+        onresult(`get_global ${index}`);
+      },
+      gset(index) {
+        onresult(`set_global ${index}`);
+      },
+      // control flow
+      nop() {
+        onresult('nop');
+      },
+      block() {
+        onresult('block');
+      },
+      end() {
+        onresult('end');
+      }
+      // calls
       call(name) {
         onresult(`call ${name}`);
       },
