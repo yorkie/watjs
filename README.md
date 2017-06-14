@@ -128,10 +128,57 @@ wat.i32.as('local') // (local i32)
 
 And `i32/i64/f32/f64` iteratly maps the following operators:
 
-- [x] `add()`
 - [x] `const(val)`
 - [x] `load(bits, flag)`
 - [x] `store(bits)`
+
+`i32/i64` types provides the following operators:
+
+- [x] `add()` sign-agnostic addition
+- [ ] `sub()` sign-agnostic subtraction
+- [ ] `mul()` sign-agnostic multiplication (lower 32-bits)
+- [ ] `div()` division (result is truncated toward zero)
+- [ ] `rem()` remainder (result has the sign of the dividend)
+- [ ] `and()` sign-agnostic bitwise and
+- [ ] `or()`  sign-agnostic bitwise inclusive or
+- [ ] `xor()` sign-agnostic bitwise exclusive or
+- [ ] `shl()` sign-agnostic shift left
+- [ ] `shr()` zero-replicating (logical|arithmetic) shift right
+- [ ] `rotl()` sign-agnostic rotate left
+- [ ] `rotr()` sign-agnostic rotate right
+- [ ] `eq()` sign-agnostic compare equal
+- [ ] `ne()` sign-agnostic compare unequal
+- [ ] `lt()` less than
+- [ ] `le()` less than or equal
+- [ ] `gt()` greater than
+- [ ] `ge()` greater than or equal
+- [ ] `clz()` sign-agnostic count leading zero bits (All zero bits are considered leading if the value is zero)
+- [ ] `ctz()` sign-agnostic count trailing zero bits (All zero bits are considered trailing if the value is zero)
+- [ ] `popcnt()` sign-agnostic count number of one bits
+- [ ] `eqz()` compare equal to zero (return 1 if operand is zero, 0 otherwise)
+
+Floating point `f32/f64 operators:
+
+- [x] `add()` addition
+- [ ] `sub()` subtraction
+- [ ] `mul()` multiplication
+- [ ] `div()` division
+- [ ] `abs()` absolute value
+- [ ] `neg()` negation
+- [ ] `copysign()` copysign
+- [ ] `ceil()` ceiling operator
+- [ ] `floor()` floor operator
+- [ ] `trunc()` round to nearest integer towards zero
+- [ ] `nearest()` round to nearest integer, ties to even
+- [ ] `eq()` compare ordered and equal
+- [ ] `ne()` compare unordered or unequal
+- [ ] `lt()` compare ordered and less than
+- [ ] `le()` compare ordered and less than or equal
+- [ ] `gt()` compare ordered and greater than
+- [ ] `ge()` compare ordered and greater than or equal
+- [ ] `sqrt()` square root
+- [ ] `min()` minimum (binary operator); if either operand is NaN, returns NaN
+- [ ] `max()` maximum (binary operator); if either operand is NaN, returns NaN
 
 ### License
 
