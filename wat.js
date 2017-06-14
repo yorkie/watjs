@@ -29,6 +29,60 @@ class WATNumber {
     return data;
   }
   /**
+   * @method load
+   * @param {Number} bits - the number of bits to load
+   * @param {String} flag - the s or u
+   */
+  load(bits, flag) {
+    let data;
+    if (arguments.length === 0) {
+      data = `${this.type}.load`;
+    } else if (arguments.length !== 2) {
+      throw new TypeError('bits and flag are required.');
+    } else {
+      if (bits % 8 !== 0 || bits <= 0) {
+        throw new TypeError('the bits could only be 8x');
+      }
+      if (flag !== 's' || flag !== 'u') {
+        throw new TypeError('the flag could only be "s"(signed) or "u"(unsigned)');
+      }
+      if (this.type === 'i32' && bits > 16) {
+        throw new RangeError('i32 could not handle more than 16 bits');
+      }
+      if (this.type === 'i64' && bits > 32) {
+        throw new RangeError('i64 could not handle more than 32 bits');
+      }
+      data = `${this.type}.load${bits}_${flag}`;
+    }
+    if (typeof this._onresult === 'function') {
+      this._onresult(data)
+    }
+    return data;
+  }
+  /**
+   * @method load
+   * @param {Number} bits - the number of bits to load
+   */
+  store(bits) {
+    let data = `${this.type}.store`;
+    if (bits) {
+      if (bits % 8 !== 0 || bits <= 0) {
+        throw new TypeError('the bits could only be 8x');
+      }
+      if (this.type === 'i32' && bits > 16) {
+        throw new RangeError('i32 could not handle more than 16 bits');
+      }
+      if (this.type === 'i64' && bits > 32) {
+        throw new RangeError('i64 could not handle more than 32 bits');
+      }
+      data += (bits);
+    }
+    if (typeof this._onresult === 'function') {
+      this._onresult(data);
+    }
+    return data;
+  }
+  /**
    * @method const
    * @param {String} val
    */

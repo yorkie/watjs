@@ -105,7 +105,12 @@ wat.i32.as('local') // (local i32)
 - `set()` maps to the instruction `set_local`.
 - `call()` maps to the instruction `call`.
 
-And `i32/i64/f32/f64` iteratly maps `add()` and `const()` methods as well.
+And `i32/i64/f32/f64` iteratly maps the following operators:
+
+- [x] `add()`
+- [x] `const(val)`
+- [x] `load(bits, flag)`
+- [x] `store(bits)`
 
 ### License
 
