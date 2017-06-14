@@ -60,7 +60,7 @@ class WATNumber {
     return data;
   }
   /**
-   * @method load
+   * @method store
    * @param {Number} bits - the number of bits to load
    */
   store(bits) {
